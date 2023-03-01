@@ -118,6 +118,13 @@ RCT_EXPORT_METHOD(getStandbyState: (RCTPromiseResolveBlock)resolve
   });
 }
 
+RCT_EXPORT_METHOD(isConnected: (RCTPromiseResolveBlock)resolve
+                  rejecter: (RCTPromiseRejectBlock)reject) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    resolve(@([self->castSession connectionState] == GCKConnectionStateConnected));
+  });
+}
+
 RCT_EXPORT_METHOD(getVolume: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject) {
   dispatch_async(dispatch_get_main_queue(), ^{

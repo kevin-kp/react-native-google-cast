@@ -37,7 +37,11 @@ export default function useCastSession(
   const [castSession, setCastSession] = useState<CastSession | null>(null)
 
   useEffect(() => {
-    manager.getCurrentCastSession().then(setCastSession)
+    manager.getCurrentCastSession().then(async (session) => {
+      if (await session?.isConnected()) {
+        setCastSession(session)
+      }
+    })
 
     const started = manager.onSessionStarted(setCastSession)
 

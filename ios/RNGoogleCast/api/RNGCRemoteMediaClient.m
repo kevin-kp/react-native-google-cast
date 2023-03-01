@@ -75,6 +75,24 @@ RCT_EXPORT_MODULE()
 
 # pragma mark - GCKRemoteMediaClient methods
 
+RCT_REMAP_METHOD(getConnected,
+                 getConnectedResolver: (RCTPromiseResolveBlock) resolve
+                 rejecter: (RCTPromiseRejectBlock) reject) {
+  [self withClientResolve:resolve reject:reject perform:^id(GCKRemoteMediaClient *client) {
+      BOOL value = [client connected];
+      return @(value);
+  }];
+}
+
+RCT_REMAP_METHOD(getIsPlayingLiveStream,
+                 getIsPlayingLiveStreamResolver: (RCTPromiseResolveBlock) resolve
+                 rejecter: (RCTPromiseRejectBlock) reject) {
+  [self withClientResolve:resolve reject:reject perform:^id(GCKRemoteMediaClient *client) {
+      BOOL value = [client isPlayingLiveStream];
+      return @(value);
+  }];
+}
+
 RCT_REMAP_METHOD(getMediaStatus,
                  getMediaStatusResolver: (RCTPromiseResolveBlock) resolve
                  rejecter: (RCTPromiseRejectBlock) reject) {

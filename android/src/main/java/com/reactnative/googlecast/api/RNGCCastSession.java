@@ -156,6 +156,16 @@ public class RNGCCastSession extends ReactContextBaseJavaModule implements Lifec
   }
 
   @ReactMethod
+  public void isConnected(final Promise promise) {
+    with.withX(new With.WithX<CastSession>() {
+      @Override
+      public void execute(CastSession castSession) {
+        promise.resolve(true);
+      }
+    }, promise);
+  }
+
+  @ReactMethod
   public void isMute(final Promise promise) {
     with.withX(new With.WithX<CastSession>() {
       @Override

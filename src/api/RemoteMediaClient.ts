@@ -36,6 +36,19 @@ export default class RemoteMediaClient {
   // }
 
   /**
+   * Checks if the RemoteMediaClient is connected.
+   */
+  isConnected(): Promise<boolean> {
+    return Native.getConnected()
+  }
+
+  /**
+   * Checks if the RemoteMediaClient is connected.
+   */
+  isPlayingLiveStream(): Promise<boolean> {
+    return Native.getIsPlayingLiveStream()
+  }
+  /**
    * The current media status, or `null` if there isn't a media session.
    */
   getMediaStatus(): Promise<MediaStatus | null> {

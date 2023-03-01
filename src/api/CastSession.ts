@@ -101,6 +101,13 @@ export default class CastSession {
 
   /**
    * @returns {boolean}
+   */
+  isConnected(): Promise<boolean> {
+    return Native.isConnected()
+  }
+
+  /**
+   * @returns {boolean}
    * @see [Android](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastSession.html#isMute())
    */
   isMute(): Promise<boolean> {

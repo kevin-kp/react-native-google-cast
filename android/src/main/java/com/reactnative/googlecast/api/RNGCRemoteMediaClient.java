@@ -80,6 +80,26 @@ public class RNGCRemoteMediaClient extends ReactContextBaseJavaModule implements
   }
 
   @ReactMethod
+  public void getConnected(final Promise promise) {
+    with.withX(new With.WithX<RemoteMediaClient>() {
+      @Override
+      public void execute(RemoteMediaClient client) {
+        promise.resolve(true);
+      }
+    }, promise);
+  }
+
+  @ReactMethod
+  public void getIsPlayingLiveStream(final Promise promise) {
+    with.withX(new With.WithX<RemoteMediaClient>() {
+      @Override
+      public void execute(RemoteMediaClient client) {
+        promise.resolve(client.isLiveStream());
+      }
+    }, promise);
+  }
+
+  @ReactMethod
   public void getMediaStatus(final Promise promise) {
     with.withX(new With.WithX<RemoteMediaClient>() {
       @Override
