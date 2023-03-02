@@ -62,6 +62,10 @@ export default class RemoteMediaClient {
     return Native.getStreamPosition()
   }
 
+  requestStatus(): Promise<void> {
+    return Native.requestStatus()
+  }
+
   /**
    * Loads and starts playback of a media item or a queue of media items with a request data.
    *
