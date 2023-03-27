@@ -13,21 +13,13 @@ public class RNGCMediaLiveSeekableRange {
 
     final WritableMap json = Arguments.createMap();
 
-    if (liveSeekableRange.getEndTime() != null) {
-      json.putDouble("endTime", liveSeekableRange.getEndTime() / 1000.0);
-    }
+    json.putDouble("endTime", liveSeekableRange.getEndTime() / 1000.0);
 
-    if (liveSeekableRange.getStartTime() != null) {
-      json.putDouble("startTime", liveSeekableRange.getStartTime() / 1000.0);
-    }
+    json.putDouble("startTime", liveSeekableRange.getStartTime() / 1000.0);
 
-    if (liveSeekableRange.isLiveDone() != null) {
-      json.putBoolean("isLiveDone", liveSeekableRange.isLiveDone());
-    }
+    json.putBoolean("isLiveDone", liveSeekableRange.isLiveDone());
 
-    if (liveSeekableRange.isMovingWindow() != null) {
-      json.putBoolean("isMovingWindow", liveSeekableRange.isMovingWindow());
-    }
+    json.putBoolean("isMovingWindow", liveSeekableRange.isMovingWindow());
 
     return json;
   }
